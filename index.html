@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Police Department Resources</title>
+    <!-- Favicon/badge placeholder for the tab bar -->
+    <link rel="icon" href="department-badge.png" type="image/png">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        header {
+            background-color: #1a3a6e;
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+        }
+        .header-logo {
+            width: 100px;  /* Change this value to adjust width */
+            height: 100px; /* Change this value to adjust height */
+            margin-right: 20px;
+}
+        .header-text {
+            flex: 1;
+        }
+        h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+        .subtitle {
+            margin-top: 5px;
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        .links-container {
+            background-color: white;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .link-item {
+            padding: 15px;
+            margin-bottom: 15px;
+            border-left: 4px solid #1a3a6e;
+            background-color: #f9f9f9;
+            transition: all 0.3s ease;
+        }
+        .link-item:hover {
+            background-color: #e9f0fd;
+            transform: translateX(5px);
+        }
+        .link-item h2 {
+            margin-top: 0;
+            margin-bottom: 8px;
+            font-size: 18px;
+            color: #1a3a6e;
+        }
+        .link-item p {
+            margin: 0 0 10px 0;
+            font-size: 14px;
+        }
+        .link-item a {
+            display: inline-block;
+            text-decoration: none;
+            color: #2c66c3;
+            font-weight: 500;
+            padding: 5px 0;
+        }
+        .link-item a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 14px;
+            color: #777;
+        }
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            header {
+                padding: 15px;
+            }
+            .header-logo {
+                width: 40px;
+                height: 40px;
+                margin-right: 10px;
+            }
+            .link-item {
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <header>
+        <img src="department-badge.png" alt="Police Department Badge" class="header-logo">
+        <div class="header-text">
+            <h1>Police Department Resources</h1>
+            <div class="subtitle">Serving and protecting our community</div>
+        </div>
+    </header>
+    
+    <div class="links-container">
+        <div class="link-item">
+            <h2>Report a Non-Emergency Incident</h2>
+            <p>File a report for non-emergency situations like property damage, theft, or lost items.</p>
+            <a href="redirect-online-reporting.html">Access Online Reporting System</a>
+        </div>
+        
+        <div class="link-item">
+            <h2>Crash Reports</h2>
+            <p>To obtain a copy of your crash report, go to https://buycrash.com and enter your crash information. </p> <p>State: &nbsp;Texas &nbsp;&nbsp;&nbsp;&nbsp; Jurisdiction: &nbsp;Port Arthur Police Department</p>
+            <a href="https://buycrash.lexisnexisrisk.com/ui/report/search?state=TX&jurisdiction=Port%20Arthur%20Police%20Department">Buy crash report</a>
+        </div>
+        
+        <div class="link-item">
+            <h2>Career Opportunities</h2>
+            <p>Please visit the link below to view our current openings.</p>
+            <a href="https://theapplicantmanager.com/careers?co=pt">Click here to join our team!</a>
+        </div>
+                
+        <div class="link-item">
+            <h2>Public Records Request</h2>
+            <p>Submit requests for public records, police reports, and other available documentation.</p>
+            <a href="https://www.portarthurtx.gov/FormCenter/Office-of-the-City-Secretary-30/Information-Request-Form-63">Request Public Records</a>
+        </div>
+                        
+        <div class="link-item">
+            <h2>Video and Photo Evidence Submission</h2>
+            <p>Please visit the link below to submit video or photos as evidence of crime to our Criminal Investigation Division.</p>
+            <a href="https://p2.citizenupload.net/upload/port-arthur-tx-police-LeAxrn">Media Submission</a>
+        </div>
+
+                                
+        <div class="link-item">
+            <h2>Family Violence Victims</h2>
+            <p>Please visit the link below to learn about available resources for crime victims for you or someone you know.</p>
+            <a href="https://www.texasattorneygeneral.gov/crime-victims">Texas Attorney Genereal - Crime Victim Resources </a>
+            <p><a href="CVS_family_violence_brochure.pdf">Family Violence PDF</a></p>
+        </div>
+        
+        <div class="link-item">
+            <h2>Contact Information</h2>
+            <p>Find phone numbers, email addresses, and locations for our department and facilities.</p>
+            <a href="https://www.portarthurtx.gov/394/Police-Department">View Contact Details</a>
+        </div>
+    </div>
+    
+    <footer>
+        &copy; 2025 Port Arthur Police Department. All rights reserved.
+    </footer>
+   <!-- Comment left to remove the chatbot for now, must add comment to each title of the below 
+-- 💬 Floating Chat Icon Button --
+<div id="chat-button" onclick="toggleChat()"
+     style="position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; background-color: #1a3a6e; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 9999; box-shadow: 0 2px 6px rgba(0,0,0,0.2);">
+    <span style="color: white; font-size: 28px;">💬</span>
+</div>
+
+-- 📦 Chat Frame Container --
+<div id="chat-container"
+     style="position: fixed; bottom: 90px; right: 20px; width: 350px; height: 500px; display: none; z-index: 9998; box-shadow: 0 0 10px rgba(0,0,0,0.3); border-radius: 10px; overflow: hidden;">
+
+    -- ❌ Close Button --
+    <div onclick="toggleChat()"
+         style="position: absolute; top: 5px; right: 10px; font-size: 18px; color: #fff; background: #1a3a6e; border-radius: 50%; width: 24px; height: 24px; text-align: center; line-height: 24px; cursor: pointer; z-index: 9999;">
+        ×
+    </div>
+
+    -- 🧠 Jotform AI Agent Iframe --
+    <iframe id="chat-frame"
+        src="https://www.jotform.com/agent/0197fd4f5f87778585f7472b565aa0a6047c"
+        style="width: 100%; height: 100%; border: none;">
+    </iframe>
+</div>
+
+-- 🧠 Chat Toggle Script with State Memory --
+<script>
+    const chatContainer = document.getElementById('chat-container');
+    const chatButton = document.getElementById('chat-button');
+
+    // Load previous state from localStorage
+    window.addEventListener('DOMContentLoaded', () => {
+        if (localStorage.getItem('chatOpen') === 'true') {
+            chatContainer.style.display = 'block';
+        }
+    });
+
+    function toggleChat() {
+        const isOpen = chatContainer.style.display === 'block';
+        chatContainer.style.display = isOpen ? 'none' : 'block';
+        localStorage.setItem('chatOpen', !isOpen);
+    }
+
+     --> 
+</script>
+
+</body>
+</html>
