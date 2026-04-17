@@ -251,7 +251,7 @@
                 <h3>Person Being Registered</h3>
                 
                 <div class="form-group">
-                    <label for="atRiskName">What is the person's name whom you wish to register? <span class="required-star">*</span></label>
+                    <label for="atRiskName">1. What is the person's name whom you wish to register? <span class="required-star">*</span></label>
                     <input type="text" id="atRiskName" name="atRiskName" required>
                 </div>
                 
@@ -324,13 +324,13 @@
                 </div>
                 
                 <div class="form-group">
-                    <label for="fullAddress">What is the person's full physical address? <span class="required-star">*</span></label>
+                    <label for="fullAddress">2. What is the person's full physical address? <span class="required-star">*</span></label>
                     <input type="text" id="fullAddress" name="fullAddress" required placeholder="Street address, city, zip code">
                 </div>
                 
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="gender">Gender <span class="required-star">*</span></label>
+                        <label for="gender">3. Gender <span class="required-star">*</span></label>
                         <select id="gender" name="gender" required>
                             <option value="">Select...</option>
                             <option value="Male">Male</option>
@@ -339,7 +339,7 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="race">Race <span class="required-star">*</span></label>
+                        <label for="race">4. Race <span class="required-star">*</span></label>
                         <select id="race" name="race" required>
                             <option value="">Select...</option>
                             <option value="Black">Black</option>
@@ -351,7 +351,7 @@
                 </div>
                 
                 <div class="form-group">
-                    <label for="lastLocation">What is the last known location of the person?</label>
+                    <label for="lastLocation">5. What is the last known location of the person?</label>
                     <input type="text" id="lastLocation" name="lastLocation" placeholder="Address, neighborhood, or area where they were last seen">
                 </div>
                 
@@ -373,7 +373,7 @@
                 <div class="form-group">
                     <label class="checkbox-label">
                         <input type="checkbox" id="drivesCheckbox">
-                        Does this person drive?
+                        6. Does this person drive?
                     </label>
                 </div>
                 
@@ -464,7 +464,7 @@
                 <h3>Medical Information</h3>
                 
                 <div class="form-group">
-                    <label>Disability or diagnosis: <span class="required-star">*</span></label>
+                    <label>7. Disability or diagnosis: <span class="required-star">*</span></label>
                     <div id="diagnosisCheckboxes">
                         <label class="checkbox-label" style="margin-bottom: 8px;">
                             <input type="checkbox" name="diagnosis" value="Autism"> Autism
@@ -492,7 +492,7 @@
                 </div>
                 
                 <div class="form-group">
-                    <label for="preferredLanguage">Preferred Language: <span class="required-star">*</span></label>
+                    <label for="preferredLanguage">8. Preferred Language: <span class="required-star">*</span></label>
                     <select id="preferredLanguage" name="preferredLanguage" required>
                         <option value="">Select language...</option>
                         <option value="English">English</option>
@@ -602,7 +602,7 @@
                 <h3>Additional Information</h3>
                 
                 <div class="form-group">
-                    <label for="additionalInfo">Please list any other information you feel is important for first responders to be aware of. Any details that would help officers (favorite places to go, calming techniques, nicknames, etc.)</label>
+                    <label for="additionalInfo">9. Please list any other information you feel is important for first responders to be aware of. Any details that would help officers (favorite places to go, calming techniques, nicknames, etc.)</label>
                     <textarea id="additionalInfo" name="additionalInfo" rows="4"></textarea>
                 </div>
             </div>
@@ -640,10 +640,12 @@
     </footer>
 
     <script>
-        // Imgur API configuration
-        // You need to register an app at https://api.imgur.com/oauth2/addclient
-        // For anonymous uploads, use Client ID only (no secret needed)
-        const IMGUR_CLIENT_ID = 'YOUR_IMGUR_CLIENT_ID'; // Replace with your Imgur Client ID
+        // ============================================
+        // CLOUDINARY CONFIGURATION
+        // ============================================
+        // REPLACE THESE WITH YOUR CLOUDINARY CREDENTIALS
+        const CLOUDINARY_CLOUD_NAME = 'dlj3t0sa2';     // Get from Cloudinary Dashboard
+        const CLOUDINARY_UPLOAD_PRESET = 'take_me_home_papd'; // Create unsigned preset in Cloudinary settings
         
         // Google Apps Script URL (your existing one)
         const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby7l-hYgcF0FywHU54uZQytcx8FY0K4N2aHObE8ignpWE7VAag825YhgPTI4e4WGtCF/exec';
@@ -667,7 +669,7 @@
             otherDiagnosisText.style.display = this.checked ? 'block' : 'none';
         });
         
-        // Photo upload and preview
+        // Photo upload and preview with Cloudinary
         const photoInput = document.getElementById('personPhoto');
         const photoPreview = document.getElementById('photoPreview');
         const previewImg = document.getElementById('previewImg');
@@ -701,31 +703,29 @@
             };
             reader.readAsDataURL(file);
             
-            // Upload to Imgur
+            // Upload to Cloudinary
             uploadStatus.innerHTML = '📤 Uploading photo...';
             uploadStatus.style.color = '#666';
             isUploading = true;
             
             const formData = new FormData();
-            formData.append('image', file);
+            formData.append('file', file);
+            formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
             
             try {
-                const response = await fetch('https://api.imgur.com/3/image', {
+                const response = await fetch(`https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/image/upload`, {
                     method: 'POST',
-                    headers: {
-                        'Authorization': `Client-ID ${IMGUR_CLIENT_ID}`
-                    },
                     body: formData
                 });
                 
                 const data = await response.json();
                 
-                if (data.success) {
-                    uploadedPhotoUrl = data.data.link;
+                if (data.secure_url) {
+                    uploadedPhotoUrl = data.secure_url;
                     uploadStatus.innerHTML = '✅ Photo uploaded successfully!';
                     uploadStatus.style.color = 'green';
                 } else {
-                    throw new Error('Upload failed');
+                    throw new Error(data.error?.message || 'Upload failed');
                 }
             } catch (error) {
                 console.error('Upload error:', error);
