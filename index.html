@@ -16,6 +16,8 @@
             padding: 20px;
             background-color: #f5f5f5;
         }
+        
+        /* UPDATED HEADER: Two badges (left + right) with centered text */
         header {
             background-color: #1a3a6e;
             color: white;
@@ -25,24 +27,62 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             display: flex;
             align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
         }
-        .header-logo {
+        
+        /* Left badge (officer-badge.png) - same 100px size */
+        .badge-left {
             width: 100px;
             height: 100px;
-            margin-right: 20px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
+        
+        .badge-left img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+        
+        /* Centered header text */
         .header-text {
             flex: 1;
+            text-align: center;
         }
-        h1 {
+        
+        .header-text h1 {
             margin: 0;
             font-size: 28px;
         }
+        
         .subtitle {
             margin-top: 5px;
             font-size: 16px;
             opacity: 0.9;
         }
+        
+        /* Right badge (department-badge.png) - same 100px size */
+        .badge-right {
+            width: 100px;
+            height: 100px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .badge-right img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+        
         .links-container {
             background-color: white;
             border-radius: 5px;
@@ -156,17 +196,25 @@
             font-size: 14px;
             color: #777;
         }
+        
         @media (max-width: 600px) {
             body {
                 padding: 10px;
             }
             header {
                 padding: 15px;
+                justify-content: center;
             }
-            .header-logo {
+            /* On mobile, badges shrink to 40px to match your original behavior */
+            .badge-left, .badge-right {
                 width: 40px;
                 height: 40px;
-                margin-right: 10px;
+            }
+            .header-text h1 {
+                font-size: 20px;
+            }
+            .subtitle {
+                font-size: 11px;
             }
             .link-item {
                 padding: 12px;
@@ -176,11 +224,22 @@
 </head>
 <body>
     
+    <!-- UPDATED HEADER: Left officer badge, centered text, right department badge -->
     <header>
-        <img src="department-badge.png" alt="Police Department Badge" class="header-logo">
+        <!-- Left: Officer Badge -->
+        <div class="badge-left">
+            <img src="officer-badge.png" alt="Officer Badge" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2245%22%20fill%3D%22%23ffcd3c%22%2F%3E%3Ctext%20x%3D%2250%22%20y%3D%2268%22%20text-anchor%3D%22middle%22%20fill%3D%22%231a3a6e%22%20font-size%3D%2220%22%20font-weight%3D%22bold%22%3EO%3C%2Ftext%3E%3C%2Fsvg%3E';">
+        </div>
+        
+        <!-- Centered Header Text -->
         <div class="header-text">
             <h1>Police Department Resources</h1>
             <div class="subtitle">Serving and protecting our community</div>
+        </div>
+        
+        <!-- Right: Department Badge -->
+        <div class="badge-right">
+            <img src="department-badge.png" alt="Police Department Badge" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2245%22%20fill%3D%22%231a3a6e%22%2F%3E%3Ctext%20x%3D%2250%22%20y%3D%2268%22%20text-anchor%3D%22middle%22%20fill%3D%22white%22%20font-size%3D%2216%22%20font-weight%3D%22bold%22%3EPAPD%3C%2Ftext%3E%3C%2Fsvg%3E';">
         </div>
     </header>
     
@@ -193,22 +252,22 @@
         
         <div class="link-item">
             <h2>Crash Reports</h2>
-            <p>To obtain a copy of your crash report, go to https://cris.dot.state.tx.us/public/Purchase and enter your crash information. </p>
+            <p>To obtain a copy of your crash report, go to https://cris.dot.state.tx.us/public/Purchase and enter your crash information.</p>
             <a href="https://cris.dot.state.tx.us/public/Purchase">Buy crash report</a>
         </div>
 
         <div class="link-item">
             <h2>Family Violence Victims</h2>
             <p>Please visit the link below to learn about available resources for crime victims for you or someone you know.</p>
-            <a href="https://www.texasattorneygeneral.gov/crime-victims">Texas Attorney Genereal - Crime Victim Resources </a>
+            <a href="https://www.texasattorneygeneral.gov/crime-victims">Texas Attorney General - Crime Victim Resources</a>
             <p><a href="CVS_family_violence_brochure.pdf">Family Violence PDF</a></p>
         </div>
         
         <div class="link-item">
-    <h2>Take Me Home PAPD</h2>
-    <p>For families with loved ones who may wander due to age, dementia, autism, or other conditions. Submit information to help officers identify and safely return them home.</p>
-    <a href="take-me-home-papd.html">Complete Registry Form →</a>
-</div>
+            <h2>Take Me Home PAPD</h2>
+            <p>For families with loved ones who may wander due to age, dementia, autism, or other conditions. Submit information to help officers identify and safely return them home.</p>
+            <a href="take-me-home-papd.html">Complete Registry Form →</a>
+        </div>
         
         <div class="link-item">
             <h2>Career Opportunities</h2>
@@ -249,7 +308,6 @@
     <footer>
         &copy; 2025 Port Arthur Police Department. All rights reserved.
     </footer>
-
 
 </body>
 </html>
