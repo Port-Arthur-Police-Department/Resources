@@ -16,11 +16,11 @@
             background-color: #f5f5f5;
         }
         
-        /* HEADER - Matching the style from index.html but with two badges */
+        /* HEADER - Matching index.html styling */
         .papd-header {
             background-color: #1a3a6e;
             color: white;
-            padding: 20px;
+            padding: 10px 20px;  /* vertical | horizontal */
             border-radius: 5px;
             margin-bottom: 30px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -31,26 +31,24 @@
             flex-wrap: wrap;
         }
         
-        /* Both badges: exactly 100x100px like your index.html department badge */
-        .badge-left,
-        .badge-right {
-            width: 100px;
-            height: 100px;
+        /* Left badge (officer-badge.png) - 125px desktop (matching index.html) */
+        .badge-left {
+            width: 125px;
+            height: 125px;
             flex-shrink: 0;
             display: flex;
             align-items: center;
             justify-content: center;
         }
         
-        .badge-left img,
-        .badge-right img {
+        .badge-left img {
             width: 100%;
             height: 100%;
             object-fit: contain;
             display: block;
         }
         
-        /* Centered header text - flex:1 pushes both badges to edges */
+        /* Centered header text */
         .header-text {
             flex: 1;
             text-align: center;
@@ -67,7 +65,24 @@
             opacity: 0.9;
         }
         
-        /* Rest of your original styles (unchanged) */
+        /* Right badge (department-badge.png) - 100px desktop (matching index.html) */
+        .badge-right {
+            width: 100px;
+            height: 100px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .badge-right img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+        
+        /* Rest of your form styles */
         .form-container {
             background-color: white;
             border-radius: 5px;
@@ -235,17 +250,21 @@
             font-size: 14px;
             color: #777;
         }
-        @media (max-width: 680px) {
+        
+        @media (max-width: 600px) {
             body {
                 padding: 10px;
             }
             .papd-header {
                 padding: 15px;
                 justify-content: center;
-                text-align: center;
             }
-            /* On mobile, match your index.html behavior - badges shrink to 40px */
-            .badge-left, .badge-right {
+            /* Mobile: officer badge 50px, department badge 40px (matching index.html) */
+            .badge-left {
+                width: 50px;
+                height: 50px;
+            }
+            .badge-right {
                 width: 40px;
                 height: 40px;
             }
@@ -264,9 +283,9 @@
 </head>
 <body>
 
-    <!-- HEADER: Same badge size (100px) as index.html - officer left, department right, title centered -->
+    <!-- HEADER: Same badge styling as index.html -->
     <div class="papd-header">
-        <!-- Left: Officer Badge (same size as department badge from index) -->
+        <!-- Left: Officer Badge (125px desktop, 50px mobile) -->
         <div class="badge-left">
             <img src="officer-badge.png" alt="Officer Badge" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2245%22%20fill%3D%22%23ffcd3c%22%2F%3E%3Ctext%20x%3D%2250%22%20y%3D%2268%22%20text-anchor%3D%22middle%22%20fill%3D%22%231a3a6e%22%20font-size%3D%2220%22%20font-weight%3D%22bold%22%3EO%3C%2Ftext%3E%3C%2Fsvg%3E';">
         </div>
@@ -277,7 +296,7 @@
             <div class="subtitle">Port Arthur Police Department - Vulnerable Person Registry</div>
         </div>
 
-        <!-- Right: Department Badge (exact same size as index.html, 100px) -->
+        <!-- Right: Department Badge (100px desktop, 40px mobile) -->
         <div class="badge-right">
             <img src="department-badge.png" alt="Police Department Badge" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2245%22%20fill%3D%22%231a3a6e%22%2F%3E%3Ctext%20x%3D%2250%22%20y%3D%2268%22%20text-anchor%3D%22middle%22%20fill%3D%22white%22%20font-size%3D%2216%22%20font-weight%3D%22bold%22%3EPAPD%3C%2Ftext%3E%3C%2Fsvg%3E';">
         </div>
@@ -555,7 +574,7 @@
                 </div>
             </div>
             
-            <!-- Contact Persons (3 of them) with Address -->
+            <!-- Contact Persons (3 of them) -->
             <div class="form-section">
                 <h3>Emergency Contacts</h3>
                 <p style="font-size: 14px; color: #666; margin-bottom: 15px;">Please provide information for three people who can be contacted regarding this individual.</p>
@@ -685,7 +704,7 @@
     </footer>
 
     <script>
-        // Cloudinary & Google script config (preserved from original)
+        // Cloudinary & Google script config
         const CLOUDINARY_CLOUD_NAME = 'dlj3t0sa2';
         const CLOUDINARY_UPLOAD_PRESET = 'take_me_home_papd';
         const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby7l-hYgcF0FywHU54uZQytcx8FY0K4N2aHObE8ignpWE7VAag825YhgPTI4e4WGtCF/exec';
