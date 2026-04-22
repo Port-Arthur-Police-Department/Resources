@@ -15,7 +15,8 @@
             padding: 20px;
             background-color: #f5f5f5;
         }
-        /* UPDATED HEADER: left officer badge, center text, right department badge */
+        
+        /* HEADER: Left badge, centered text, right badge - NO white circles */
         .papd-header {
             background-color: #1a3a6e;
             color: white;
@@ -29,68 +30,44 @@
             gap: 20px;
             flex-wrap: wrap;
         }
-        /* Left badge (officer-badge.png) */
-        .badge-left {
+        
+        /* Both badges: identical sizing, transparent background, no circle */
+        .badge-left,
+        .badge-right {
             width: 85px;
             height: 85px;
             flex-shrink: 0;
-            background: #ffffff;
-            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 6px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-            transition: transform 0.2s ease;
         }
-        .badge-left img {
+        
+        .badge-left img,
+        .badge-right img {
             width: 100%;
             height: 100%;
             object-fit: contain;
-            border-radius: 50%;
+            display: block;
         }
-        .badge-left:hover {
-            transform: scale(1.02);
-        }
+        
         /* Centered header text */
         .header-text {
             flex: 1;
             text-align: center;
         }
+        
         .header-text h1 {
             margin: 0;
             font-size: 28px;
             letter-spacing: 0.5px;
         }
+        
         .subtitle {
             margin-top: 5px;
             font-size: 16px;
             opacity: 0.9;
         }
-        /* Right badge (department-badge.png) */
-        .badge-right {
-            width: 85px;
-            height: 85px;
-            flex-shrink: 0;
-            background: #ffffff;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 6px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-            transition: transform 0.2s ease;
-        }
-        .badge-right img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            border-radius: 50%;
-        }
-        .badge-right:hover {
-            transform: scale(1.02);
-        }
-
+        
         /* Rest of your original styles (unchanged) */
         .form-container {
             background-color: white;
@@ -287,22 +264,22 @@
 </head>
 <body>
 
-    <!-- NEW HEADER: Left: officer-badge.png | Center: Take-Me-Home-PAPD title | Right: department-badge.png -->
+    <!-- HEADER: officer-badge (left) | Centered Title | department-badge (right) - NO white backgrounds -->
     <div class="papd-header">
-        <!-- Left side: Officer Badge -->
+        <!-- Left: Officer Badge (mirroring department badge, no background) -->
         <div class="badge-left">
-            <img src="officer-badge.png" alt="Officer Badge" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2245%22%20fill%3D%22%23ffcd3c%22%2F%3E%3Ctext%20x%3D%2250%22%20y%3D%2268%22%20text-anchor%3D%22middle%22%20fill%3D%22%231a3a6e%22%20font-size%3D%2220%22%20font-weight%3D%22bold%22%3EPAPD%3C%2Ftext%3E%3C%2Fsvg%3E';">
+            <img src="officer-badge.png" alt="Officer Badge" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Crect%20width%3D%22100%22%20height%3D%22100%22%20fill%3D%22%23ffcd3c%22%2F%3E%3Ctext%20x%3D%2250%22%20y%3D%2265%22%20text-anchor%3D%22middle%22%20fill%3D%22%231a3a6e%22%20font-size%3D%2218%22%20font-weight%3D%22bold%22%3EOFFICER%3C%2Ftext%3E%3C%2Fsvg%3E';">
         </div>
 
-        <!-- Centered Title Block -->
+        <!-- Centered Title -->
         <div class="header-text">
             <h1>Take-Me-Home-PAPD</h1>
             <div class="subtitle">Port Arthur Police Department - Vulnerable Person Registry</div>
         </div>
 
-        <!-- Right side: Department Badge -->
+        <!-- Right: Department Badge (original, no background circle) -->
         <div class="badge-right">
-            <img src="department-badge.png" alt="Police Department Badge" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2245%22%20fill%3D%22%23white%22%2F%3E%3Cpolygon%20points%3D%2250,20%2070,45%2065,75%2035,75%2030,45%22%20fill%3D%22%231a3a6e%22%2F%3E%3C%2Fsvg%3E';">
+            <img src="department-badge.png" alt="Police Department Badge" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Crect%20width%3D%22100%22%20height%3D%22100%22%20fill%3D%22%231a3a6e%22%2F%3E%3Ctext%20x%3D%2250%22%20y%3D%2265%22%20text-anchor%3D%22middle%22%20fill%3D%22white%22%20font-size%3D%2216%22%20font-weight%3D%22bold%22%3EPAPD%3C%2Ftext%3E%3C%2Fsvg%3E';">
         </div>
     </div>
 
