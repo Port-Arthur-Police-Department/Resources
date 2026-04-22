@@ -16,28 +16,28 @@
             background-color: #f5f5f5;
         }
         /* Header styles updated: moved badge to the right */
-        header {
-            background-color: #1a3a6e;
-            color: white;
-            padding: 20px;
-            border-radius: 5px;
-            margin-bottom: 30px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            display: flex;
-            align-items: center;
-            justify-content: space-between; /* Distributes space between text and badge */
-            gap: 20px;
-        }
-        .header-logo {
-            width: 100px;
-            height: 100px;
-            /* Removed margin-right: 20px; badge will now naturally align to the right */
-            order: 2; /* Ensures badge appears on the right side in flex order */
-        }
-        .header-text {
-            flex: 1; /* Allows text to take remaining space, pushing badge to right */
-            order: 1; /* Text stays on the left */
-        }
+       header {
+    background-color: #1a3a6e;
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+.header-logo {
+    width: 100px;
+    height: 100px;
+    order: 2;
+}
+.header-text {
+    flex: 1;
+    order: 1;
+    text-align: center; /* NEW: Centers the text horizontally */
+}
         h1 {
             margin: 0;
             font-size: 28px;
