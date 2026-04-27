@@ -415,11 +415,6 @@
                 </div>
                 
                 <div class="form-group">
-                    <label for="lastLocation">5. What is the last known location of the person?</label>
-                    <input type="text" id="lastLocation" name="lastLocation" placeholder="Address, neighborhood, or area where they were last seen">
-                </div>
-                
-                <div class="form-group">
                     <label for="personPhoto">Upload Photo of the Person</label>
                     <input type="file" id="personPhoto" name="personPhoto" accept="image/jpeg,image/png,image/jpg">
                     <div id="photoPreview" class="photo-preview">
@@ -437,7 +432,7 @@
                 <div class="form-group">
                     <label class="checkbox-label">
                         <input type="checkbox" id="drivesCheckbox">
-                        6. Does this person drive?
+                        5. Does this person drive?
                     </label>
                 </div>
                 
@@ -528,7 +523,7 @@
                 <h3>Medical Information</h3>
                 
                 <div class="form-group">
-                    <label>7. Disability or diagnosis: <span class="required-star">*</span></label>
+                    <label>6. Disability or diagnosis: <span class="required-star">*</span></label>
                     <div id="diagnosisCheckboxes">
                         <label class="checkbox-label" style="margin-bottom: 8px;">
                             <input type="checkbox" name="diagnosis" value="Autism"> Autism
@@ -556,7 +551,7 @@
                 </div>
                 
                 <div class="form-group">
-                    <label for="preferredLanguage">8. Preferred Language: <span class="required-star">*</span></label>
+                    <label for="preferredLanguage">7. Preferred Language: <span class="required-star">*</span></label>
                     <select id="preferredLanguage" name="preferredLanguage" required>
                         <option value="">Select language...</option>
                         <option value="English">English</option>
@@ -666,7 +661,7 @@
                 <h3>Additional Information</h3>
                 
                 <div class="form-group">
-                    <label for="additionalInfo">9. Please list any other information you feel is important for first responders to be aware of. Any details that would help officers (favorite places to go, calming techniques, nicknames, etc.)</label>
+                    <label for="additionalInfo">8. Please list any other information you feel is important for first responders to be aware of. Any details that would help officers (favorite places to go, calming techniques, nicknames, etc.)</label>
                     <textarea id="additionalInfo" name="additionalInfo" rows="4"></textarea>
                 </div>
             </div>
@@ -831,7 +826,6 @@
                 fullAddress: document.getElementById('fullAddress').value.trim(),
                 gender: document.getElementById('gender').value,
                 race: document.getElementById('race').value,
-                lastLocation: document.getElementById('lastLocation').value.trim(),
                 photoUrl: uploadedPhotoUrl,
                 drives: drivesCheckbox.checked ? 'Yes' : 'No',
                 vehicleMake: document.getElementById('vehicleMake').value.trim(),
