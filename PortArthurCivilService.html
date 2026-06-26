@@ -20,6 +20,54 @@
             align-items: center;
         }
 
+        /* ---- floating export button ---- */
+        .export-btn {
+            position: fixed;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: #0b1b33;
+            color: #fff;
+            border: none;
+            padding: 0.7rem 1.8rem;
+            border-radius: 40px;
+            font-size: 1rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+            z-index: 1000;
+            transition: background 0.2s, transform 0.1s;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        .export-btn:hover {
+            background: #1a3a6b;
+            transform: scale(1.02);
+        }
+        .export-btn:active {
+            transform: scale(0.97);
+        }
+
+        /* responsive adjustment for smaller screens */
+        @media (max-width: 700px) {
+            .export-btn {
+                padding: 0.5rem 1.2rem;
+                font-size: 0.9rem;
+                top: 1rem;
+                right: 1rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .export-btn {
+                padding: 0.4rem 1rem;
+                font-size: 0.8rem;
+                top: 0.6rem;
+                right: 0.6rem;
+                border-radius: 30px;
+            }
+        }
+
         .book-container {
             max-width: 1000px;
             width: 100%;
@@ -280,10 +328,20 @@
                 background: #f0f0f0;
                 color: #333;
             }
+
+            /* hide the export button when printing */
+            .export-btn {
+                display: none !important;
+            }
         }
     </style>
 </head>
 <body>
+
+    <!-- ✅ Floating export button – now correctly placed in the body -->
+    <button class="export-btn" onclick="window.print()">
+        <span style="font-size:1.1rem;">🖨️</span> Export to PDF / Print
+    </button>
 
     <div class="book-container">
 
